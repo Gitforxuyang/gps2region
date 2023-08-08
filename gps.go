@@ -103,7 +103,7 @@ var (
 
 func (m *gps2Region) Gps2GeoPosition(lng, lat float64) (Position, error) {
 	province := m.country.FindLoc(lng, lat)
-	if province == StrNotFound {
+	if province == StrNotFound || province == "" {
 		return Position{}, UnknownPosition
 	}
 	position := Position{}
@@ -124,6 +124,8 @@ func (m *gps2Region) Gps2GeoPosition(lng, lat float64) (Position, error) {
 	} else {
 		return position, errors.New("未知的level")
 	}
-	position.CityCode = m.adCode2CityMapping[position.AdCode].CityCode
+	if m.adCode2CityMapping[position.AdCode] != nil {
+		position.CityCode = m.adCode2CityMapping[position.AdCode].CityCode
+	}
 	return position, nil
 }

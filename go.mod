@@ -8,5 +8,6 @@ require (
 	github.com/kylelemons/go-gypsy v1.0.0 // indirect
 	github.com/lib/pq v1.10.9 // indirect
 	github.com/paulmach/go.geojson v1.5.0 // indirect
+	github.com/valyala/fastjson v1.6.4 // indirect
 	github.com/ziutek/mymysql v1.5.4 // indirect
 )

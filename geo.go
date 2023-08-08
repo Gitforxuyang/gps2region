@@ -108,23 +108,23 @@ func (g *GeoMap) findPoint(tmpPoint *geo.Point) string {
 	return StrNotFound
 }
 
-//func (g *GeoMap) ContainPoint(tmpPoint *geo.Point) bool {
-//	for _, polys := range g.GMap {
-//		for _, poly := range polys {
-//			if poly.Contains(tmpPoint) {
-//				return true
-//			}
-//		}
-//	}
-//	return false
-//}
+func (g *GeoMap) containPoint(tmpPoint *geo.Point) bool {
+	for _, polys := range g.GMap {
+		for _, poly := range polys {
+			if poly.Contains(tmpPoint) {
+				return true
+			}
+		}
+	}
+	return false
+}
 
 func (g *GeoMap) FindLoc(lng, lat float64) string {
 	tmpPoint := geo.NewPoint(lat, lng)
 	return g.findPoint(tmpPoint)
 }
 
-//func (g *GeoMap) ContainLoc(lat, lng float64) bool {
-//	tmpPoint := geo.NewPoint(lat, lng)
-//	return g.ContainPoint(tmpPoint)
-//}
+func (g *GeoMap) ContainLoc(lng, lat float64) bool {
+	tmpPoint := geo.NewPoint(lat, lng)
+	return g.containPoint(tmpPoint)
+}
