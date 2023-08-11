@@ -19,7 +19,7 @@
 
 ### 基本用法：
 
-go get github.com/Gitforxuyang/gps2region
+go get github.com/Gitforxuyang/gps2region@v1
 
 ```
 m, err := gps2region.InitGps2Region()
