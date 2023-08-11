@@ -17,7 +17,7 @@
 通过与高德API进行随机对比测试，发现在一些省市交界的地方有可能会有定位错误的情况，综合测试下来的错误率大概在不到千分之一左右。
 
 
-###基本用法：
+### 基本用法：
 
 go get github.com/Gitforxuyang/gps2region
 
@@ -30,5 +30,8 @@ p, err := m.Gps2GeoPosition(79.98649941751329, 40.76153810752187)
 if err != nil {
     panic(err)
 }
-fmt.Println(p)
+b, _ := json.Marshal(p)
+fmt.Println(string(b))
+
+输出： {"Province":"新疆维吾尔自治区","City":"阿克苏地区","District":"","CityCode":"0997","AdCode":"652900"}
 ```
